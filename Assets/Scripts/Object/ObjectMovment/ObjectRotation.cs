@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ObjectRotation : MonoBehaviour
 {
+    [Header("Rotation Values")]
     [SerializeField]
     float objectRotationSpeed = 5f;
     GameObject mainObject; 
     
     void Awake()
     {
-        mainObject = FindObjectOfType<MainObject>().GetMainObject();
+        GetNewMainObject();
     }
 
     private void OnMouseDrag()
@@ -25,7 +26,12 @@ public class ObjectRotation : MonoBehaviour
         }
         else
         {
-            mainObject = FindObjectOfType<MainObject>().GetMainObject();
+            GetNewMainObject();
         }
     }
+    public void GetNewMainObject()
+    {
+        mainObject = FindObjectOfType<MainObject>().GetMainObject();
+    }
+
 }

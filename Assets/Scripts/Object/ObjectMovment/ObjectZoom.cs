@@ -6,10 +6,11 @@ public class ObjectZoom : MonoBehaviour
 {
     Camera mainCamera { get; set; }
     BoxCollider boxCollider { get; set; }
-
+    [Header("Zoom Values")]
     [SerializeField]
     float zoomingSpeed = 1;
 
+    [Header("Camped Values")]
     [SerializeField]
     float maxZoomIn = 0.0001f;
     [SerializeField]

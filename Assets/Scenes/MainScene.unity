@@ -987,7 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be37beb0d6d019c4a8c1df8240f847f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectRotationSpeed: 1
+  objectRotationSpeed: 30
 --- !u!65 &1112698684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e98a3b95b114e4b8020909d4f469dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomingSpeed: 1
+  zoomingSpeed: 15
   maxZoomIn: 0.0001
   maxZoomOut: Infinity
 --- !u!114 &1112698687

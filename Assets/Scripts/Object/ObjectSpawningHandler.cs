@@ -118,5 +118,6 @@ public class ObjectSpawningHandler : MonoBehaviour
     void SetObjectAsMain(GameObject gameObject)
     {
         FindObjectOfType<MainObject>().SetMainObject(gameObject);
+        FindObjectOfType<ObjectRotation>().GetNewMainObject();
     }
 }

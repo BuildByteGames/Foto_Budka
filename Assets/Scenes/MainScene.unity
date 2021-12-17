@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 325301801}
   - component: {fileID: 325301803}
   - component: {fileID: 325301802}
+  - component: {fileID: 325301804}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -450,14 +451,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllObjects:
-  - {fileID: 4444037787700112418, guid: 030e7e4c28afeef4e90ded92492ba2f9, type: 3}
-  - {fileID: 4444037787700112418, guid: 030e7e4c28afeef4e90ded92492ba2f9, type: 3}
-  - {fileID: 4444037787700112418, guid: 030e7e4c28afeef4e90ded92492ba2f9, type: 3}
-  - {fileID: 4444037787700112418, guid: 030e7e4c28afeef4e90ded92492ba2f9, type: 3}
+  - {fileID: 6576558071723897203, guid: 28fdc4b280dd1fb449a4be8052546f1f, type: 3}
   transparentMateral: {fileID: 2100000, guid: 03c7df8c206d1d142a6ddb4a7b2b260a, type: 2}
-  fadeingTime: 0.2
+  fadeingTime: 0.5
   movingTime: 1
   movingPosition: 3
+--- !u!114 &325301804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325301800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2dfb0ad33f9e404a9b4b22bf74f0743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &383345185
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +684,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 485866020}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 325301804}
+        m_TargetAssemblyTypeName: TakePictureButton, Assembly-CSharp
+        m_MethodName: TakePicture
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &485866020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,6 +905,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -949,12 +972,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.38, z: -5.11}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2aa3a0411918d4085bbee1dd9f1683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  format: 0
+  fileName: Picture
 --- !u!1 &1112698682
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,7 +1024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be37beb0d6d019c4a8c1df8240f847f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectRotationSpeed: 30
+  objectRotationSpeed: 20
 --- !u!65 &1112698684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1027,7 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e98a3b95b114e4b8020909d4f469dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomingSpeed: 15
+  zoomingSpeed: 20
   maxZoomIn: 0.0001
   maxZoomOut: Infinity
 --- !u!114 &1112698687

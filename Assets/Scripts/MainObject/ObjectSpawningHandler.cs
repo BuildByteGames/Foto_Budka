@@ -15,18 +15,16 @@ public class ObjectSpawningHandler : MonoBehaviour
     float movingTime = 1;
     [SerializeField]
     float movingPosition = 30;
-    int mainObjectIndex { get; set; }
+    [SerializeField]
+    int mainObjectIndex = 0;
 
     private void Awake()
     {
-        //Load Object Here <---
-
-        GetLastVievObject();
-
-        if (AllObjects.Length > 0)
+        LoadingObjects();
+        if (AllObjects.Length >= 0)
         {
-            PreSpawnObjects(AllObjects.Length);
-            ObjectShowing(mainObjectIndex, 0);
+             GetLastVievObject();
+             ObjectShowing(mainObjectIndex, 0);
         }
         else
         {
@@ -34,6 +32,18 @@ public class ObjectSpawningHandler : MonoBehaviour
         }
 
     }
+
+    private void LoadingObjects()
+    {
+        AllObjects = global::LoadingObjects.Load("Input");
+
+        foreach (GameObject gameObject in AllObjects)
+        {
+            gameObject.SetActive(false);
+            LeanTween.moveX(gameObject, 0, 0);
+        }
+    }
+
     public bool MoreNextObjects()
     {
         if (mainObjectIndex < AllObjects.Length - 1)
@@ -76,11 +86,9 @@ public class ObjectSpawningHandler : MonoBehaviour
         GameObject gameObject = AllObjects[objectIndex];
 
         //Hiding gameObject
-        LeanTween.moveX(gameObject, movingPosition * fadeDirection, movingTime);
-
-        LeanTween.alpha(gameObject, 0, fadeingTime).setOnComplete(() => 
+        LeanTween.moveX(gameObject, movingPosition * fadeDirection, movingTime).setOnComplete(() =>
         {
-            gameObject.SetActive(false); 
+            gameObject.SetActive(false);
 
         });
     }
@@ -94,9 +102,7 @@ public class ObjectSpawningHandler : MonoBehaviour
         LeanTween.moveX(gameObject, fadeDirection * movingPosition, 0);
 
         //Showing it
-        LeanTween.moveX(gameObject, 0, movingTime);
-
-        LeanTween.alpha(gameObject, 1, fadeingTime).setOnComplete(() =>
+        LeanTween.moveX(gameObject, 0, movingTime).setOnComplete(() =>
         {
             gameObject.SetActive(true);
             SetObjectAsMain(gameObject);
@@ -106,9 +112,9 @@ public class ObjectSpawningHandler : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("mainObjectIndex"))
         {
-            if (PlayerPrefs.GetInt("mainObjectIndex") > AllObjects.Length)
+            if (PlayerPrefs.GetInt("mainObjectIndex") > AllObjects.Length - 1)
             {
-                //There is less 3d objects then last time
+                //There is less 3d objects then last time using application
                 mainObjectIndex = AllObjects.Length - 1;
                 PlayerPrefs.SetInt("mainObjectIndex",AllObjects.Length - 1);
             }
@@ -123,17 +129,6 @@ public class ObjectSpawningHandler : MonoBehaviour
             //First Boot
             mainObjectIndex = 0;
             PlayerPrefs.SetInt("mainObjectIndex", 0);
-        }
-    }
-    void PreSpawnObjects(int objectAmount)
-    {
-        for (int i = 0; i < objectAmount; i++)
-        {
-            GameObject gameObject = Instantiate(AllObjects[i],Vector3.zero,Quaternion.identity);
-            gameObject.GetComponent<Renderer>().material = transparentMateral;
-            gameObject.SetActive(false);
-            LeanTween.alpha(gameObject, 0, 0);
-            AllObjects[i] = gameObject;
         }
     }
     void SetObjectAsMain(GameObject gameObject)

@@ -80,8 +80,7 @@ public class PhotoHandler : MonoBehaviour
 
         string saveingDirectory =  $"{directoryInformation.FullName}\\{fileName}";
         
-        //checks file name
-        Debug.Log(saveingDirectory);
+        //Checks file name
         int index = 0;
         if (File.Exists(saveingDirectory + $".{ format}"))
         {
@@ -93,7 +92,6 @@ public class PhotoHandler : MonoBehaviour
         }
 
         string finalPath = saveingDirectory + $".{ format}";
-        Debug.Log(finalPath);
         return finalPath;
     }
 }

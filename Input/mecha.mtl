@@ -1,0 +1,207 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 13.11.2015 15:08:57
+
+newmtl Helmet
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\UV_helmet_d.png
+	map_Kd C:\Users\scilab\Documents\Proj files\UV_helmet_d.png
+	map_Ks C:\Users\scilab\Documents\Proj files\UV_helmet_sc.png
+	map_Ke C:\Users\scilab\Documents\Proj files\UV_helmet_si.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga
+
+newmtl Pelvis
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\UV_pelvis_d.png
+	map_Kd C:\Users\scilab\Documents\Proj files\UV_pelvis_d.png
+	map_Ks C:\Users\scilab\Documents\Proj files\UV_pelvis_sc.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga
+
+newmtl Material__72
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0118 0.0118 0.0118
+	Kd 0.0118 0.0118 0.0118
+	Ks 0.3600 0.3600 0.3600
+	Ke 0.0000 0.0000 0.0000
+
+newmtl Material__98
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\brass.png
+	map_Kd C:\Users\scilab\Documents\Proj files\brass.png
+	map_Ks C:\Users\scilab\Documents\Proj files\brass_sc.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga
+
+newmtl light
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\UV_light_d.png
+	map_Kd C:\Users\scilab\Documents\Proj files\UV_light_d.png
+	map_Ks C:\Users\scilab\Documents\Proj files\UV_light_sc.png
+	map_Ke C:\Users\scilab\Documents\Proj files\UV_light_si.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga
+
+newmtl Material__100
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\UV_hull_sl.png
+	map_Kd C:\Users\scilab\Documents\Proj files\UV_hull_sl.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga
+
+newmtl hull
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.3600 0.3600 0.3600
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\UV_hull_d.png
+	map_Kd C:\Users\scilab\Documents\Proj files\UV_hull_d.png
+	map_Ks C:\Users\scilab\Documents\Proj files\UV_hull_sc.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga
+
+newmtl upper_arm
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\UV_upper_arm_d.png
+	map_Kd C:\Users\scilab\Documents\Proj files\UV_upper_arm_d.png
+	map_Ks C:\Users\scilab\Documents\Proj files\UV_upper_arm_sc.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga
+
+newmtl Shoulder
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\UV_Shoulder_d.png
+	map_Kd C:\Users\scilab\Documents\Proj files\UV_Shoulder_d.png
+	map_Ks C:\Users\scilab\Documents\Proj files\UV_Shoulder_sc.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga
+
+newmtl Gun_housing
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\UV_Gunhousing_d.png
+	map_Kd C:\Users\scilab\Documents\Proj files\UV_Gunhousing_d.png
+	map_Ks C:\Users\scilab\Documents\Proj files\UV_Gunhousing_sc.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga
+
+newmtl lower_leg
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\UV_lower_leg_d.png
+	map_Kd C:\Users\scilab\Documents\Proj files\UV_lower_leg_d.png
+	map_Ks C:\Users\scilab\Documents\Proj files\UV_lower_leg_sc.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga
+
+newmtl mid_leg
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\UV_mid_leg_d.png
+	map_Kd C:\Users\scilab\Documents\Proj files\UV_mid_leg_d.png
+	map_Ks C:\Users\scilab\Documents\Proj files\UV_mid_leg_sc.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga
+
+newmtl upper_leg
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\scilab\Documents\Proj files\UV_Upper_leg_d.png
+	map_Kd C:\Users\scilab\Documents\Proj files\UV_Upper_leg_d.png
+	map_Ks C:\Users\scilab\Documents\Proj files\UV_Upper_leg_sc.png
+	map_bump -bm 0.3000 Map__16_Normal_Bump.tga

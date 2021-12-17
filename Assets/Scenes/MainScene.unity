@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e98a3b95b114e4b8020909d4f469dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomingSpeed: 20
+  zoomingSpeed: 50
   maxZoomIn: 0.0001
   maxZoomOut: Infinity
 --- !u!114 &1112698687
@@ -1074,15 +1074,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f732656e3f466894582f24a481454a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllObjects:
-  - {fileID: 1422830161799535923, guid: ecc069b2823fee3458ce22265e8a1cd7, type: 3}
-  - {fileID: 1709254513399639380, guid: cc31b15bf70d0114b9b3f8618f6e870f, type: 3}
-  - {fileID: 6576558071723897203, guid: 28fdc4b280dd1fb449a4be8052546f1f, type: 3}
-  - {fileID: 1709254513399639380, guid: cc31b15bf70d0114b9b3f8618f6e870f, type: 3}
+  AllObjects: []
   transparentMateral: {fileID: 2100000, guid: 03c7df8c206d1d142a6ddb4a7b2b260a, type: 2}
   fadeingTime: 0.5
   movingTime: 1
-  movingPosition: 3
+  movingPosition: 10
+  mainObjectIndex: 0
 --- !u!1 &1190600641
 GameObject:
   m_ObjectHideFlags: 0

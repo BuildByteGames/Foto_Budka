@@ -8,7 +8,7 @@ public class ObjectSwapButton : MonoBehaviour
     [SerializeField]
     Button nextButton;
     ObjectSpawningHandler spawningHandler;
-    private void Awake()
+    private void Start()
     {
         spawningHandler = FindObjectOfType<ObjectSpawningHandler>();
 

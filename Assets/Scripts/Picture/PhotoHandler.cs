@@ -13,15 +13,13 @@ public class PhotoHandler : MonoBehaviour
     PictureFormat format;
     [SerializeField]
     string fileName = "Picture";
-    [SerializeField]
-    string folderName = "Output";
 
     bool takeScreenShot;
 
     Camera pictureCamera;
     void Awake()
     {
-        pictureCamera = GetComponent<Camera>();
+        pictureCamera = Camera.main;
     }
 
     public void Shot(int width, int height)
@@ -74,7 +72,7 @@ public class PhotoHandler : MonoBehaviour
     {
         //Checks Folder
 
-          DirectoryInfo directoryInformation = new DirectoryInfo(folderName);
+          DirectoryInfo directoryInformation = new DirectoryInfo(FindObjectOfType<ActiveFolders>().folderOutputName);
         if (!directoryInformation.Exists)
             directoryInformation.Create();
 

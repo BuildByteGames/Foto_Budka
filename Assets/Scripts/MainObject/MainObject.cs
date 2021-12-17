@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainObject : MonoBehaviour
 {
-    GameObject mainObject;
+     GameObject mainObject;
     public void SetMainObject(GameObject main)
     {
         mainObject = main;

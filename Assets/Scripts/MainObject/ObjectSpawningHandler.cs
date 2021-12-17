@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class ObjectSpawningHandler : MonoBehaviour
 {
-    [SerializeField]
-    GameObject[] AllObjects; //TODO: Load Object From Input
-    [SerializeField]
-    Material transparentMateral;
     [Header("TransitionOptions")]
     [SerializeField]
-    float fadeingTime = 1;
-    [SerializeField]
     float movingTime = 1;
+
     [SerializeField]
     float movingPosition = 30;
-    [SerializeField]
-    int mainObjectIndex = 0;
 
-    private void Awake()
+
+    private int mainObjectIndex = 0;
+
+    private List<GameObject> allObjects = new List<GameObject>();
+    public void UpdateObjects()
+    {
+        UnloadObjets();
+        Awake();
+    }
+     void Awake()
     {
         LoadingObjects();
-        if (AllObjects.Length >= 0)
+        if (allObjects.Count >= 0)
         {
              GetLastVievObject();
              ObjectShowing(mainObjectIndex, 0);
@@ -32,12 +34,22 @@ public class ObjectSpawningHandler : MonoBehaviour
         }
 
     }
+    void UnloadObjets()
+    {
+        foreach(GameObject gameObject in allObjects)
+        {
+            Destroy(gameObject);
+        }
 
+        allObjects.Clear();
+    }
     private void LoadingObjects()
     {
-        AllObjects = global::LoadingObjects.Load("Input");
 
-        foreach (GameObject gameObject in AllObjects)
+        allObjects = global::LoadingObjects.UpdateObjests(allObjects);
+
+
+        foreach (GameObject gameObject in allObjects)
         {
             gameObject.SetActive(false);
             LeanTween.moveX(gameObject, 0, 0);
@@ -46,7 +58,7 @@ public class ObjectSpawningHandler : MonoBehaviour
 
     public bool MoreNextObjects()
     {
-        if (mainObjectIndex < AllObjects.Length - 1)
+        if (mainObjectIndex < allObjects.Count - 1)
         {
             return true;
         }
@@ -83,7 +95,7 @@ public class ObjectSpawningHandler : MonoBehaviour
     }
     void ObjectHideing(int objectIndex,int fadeDirection)
     {
-        GameObject gameObject = AllObjects[objectIndex];
+        GameObject gameObject = allObjects[objectIndex];
 
         //Hiding gameObject
         LeanTween.moveX(gameObject, movingPosition * fadeDirection, movingTime).setOnComplete(() =>
@@ -94,7 +106,7 @@ public class ObjectSpawningHandler : MonoBehaviour
     }
     void ObjectShowing(int objectIndex, int fadeDirection)
     {
-        GameObject gameObject = AllObjects[objectIndex];
+        GameObject gameObject = allObjects[objectIndex];
 
         //Prepering Gameobject To Show
         gameObject.SetActive(true);
@@ -112,11 +124,11 @@ public class ObjectSpawningHandler : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("mainObjectIndex"))
         {
-            if (PlayerPrefs.GetInt("mainObjectIndex") > AllObjects.Length - 1)
+            if (PlayerPrefs.GetInt("mainObjectIndex") > allObjects.Count - 1)
             {
                 //There is less 3d objects then last time using application
-                mainObjectIndex = AllObjects.Length - 1;
-                PlayerPrefs.SetInt("mainObjectIndex",AllObjects.Length - 1);
+                mainObjectIndex = allObjects.Count - 1;
+                PlayerPrefs.SetInt("mainObjectIndex",allObjects.Count - 1);
             }
             else
             {

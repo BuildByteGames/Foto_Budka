@@ -19,11 +19,19 @@ public class ObjectSpawningHandler : MonoBehaviour
 
     private void Awake()
     {
+        //Load Object Here <---
+
         GetLastVievObject();
 
-        PreSpawnObjects(AllObjects.Length);
-
-        ObjectSpawn(mainObjectIndex, 0);
+        if (AllObjects.Length > 0)
+        {
+            PreSpawnObjects(AllObjects.Length);
+            ObjectShowing(mainObjectIndex, 0);
+        }
+        else
+        {
+            Debug.LogWarning("There are no Object/s to Render");
+        }
 
     }
     public bool MoreNextObjects()
@@ -50,18 +58,20 @@ public class ObjectSpawningHandler : MonoBehaviour
     }
     public void NextObject()
     {
-        ObjectDespawn(mainObjectIndex,1);
+        ObjectHideing(mainObjectIndex,1);
         mainObjectIndex++;
-        ObjectSpawn(mainObjectIndex,-1);
+        PlayerPrefs.SetInt("mainObjectIndex",mainObjectIndex);
+        ObjectShowing(mainObjectIndex,-1);
 
     }
     public void PreviousObject()
     {
-        ObjectDespawn(mainObjectIndex,-1);
+        ObjectHideing(mainObjectIndex,-1);
         mainObjectIndex--;
-        ObjectSpawn(mainObjectIndex,1);
+        PlayerPrefs.SetInt("mainObjectIndex", mainObjectIndex);
+        ObjectShowing(mainObjectIndex,1);
     }
-    void ObjectDespawn(int objectIndex,int fadeDirection)
+    void ObjectHideing(int objectIndex,int fadeDirection)
     {
         GameObject gameObject = AllObjects[objectIndex];
 
@@ -74,7 +84,7 @@ public class ObjectSpawningHandler : MonoBehaviour
 
         });
     }
-    void ObjectSpawn(int objectIndex, int fadeDirection)
+    void ObjectShowing(int objectIndex, int fadeDirection)
     {
         GameObject gameObject = AllObjects[objectIndex];
 
@@ -96,10 +106,21 @@ public class ObjectSpawningHandler : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("mainObjectIndex"))
         {
-            mainObjectIndex = PlayerPrefs.GetInt("mainObjectIndex", 0);
+            if (PlayerPrefs.GetInt("mainObjectIndex") > AllObjects.Length)
+            {
+                //There is less 3d objects then last time
+                mainObjectIndex = AllObjects.Length - 1;
+                PlayerPrefs.SetInt("mainObjectIndex",AllObjects.Length - 1);
+            }
+            else
+            {
+                //Normal Set
+                mainObjectIndex = PlayerPrefs.GetInt("mainObjectIndex", 0);
+            }
         }
         else
         {
+            //First Boot
             mainObjectIndex = 0;
             PlayerPrefs.SetInt("mainObjectIndex", 0);
         }
@@ -108,7 +129,7 @@ public class ObjectSpawningHandler : MonoBehaviour
     {
         for (int i = 0; i < objectAmount; i++)
         {
-            GameObject gameObject = Instantiate(AllObjects[i]);
+            GameObject gameObject = Instantiate(AllObjects[i],Vector3.zero,Quaternion.identity);
             gameObject.GetComponent<Renderer>().material = transparentMateral;
             gameObject.SetActive(false);
             LeanTween.alpha(gameObject, 0, 0);

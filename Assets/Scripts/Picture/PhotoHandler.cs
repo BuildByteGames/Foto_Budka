@@ -13,6 +13,8 @@ public class PhotoHandler : MonoBehaviour
     PictureFormat format;
     [SerializeField]
     string fileName = "Picture";
+    [SerializeField]
+    string folderName = "Output";
 
     bool takeScreenShot;
 
@@ -70,15 +72,15 @@ public class PhotoHandler : MonoBehaviour
     }
     string CheckPath(string fileName)
     {
-        //Check Folder
+        //Checks Folder
 
-          DirectoryInfo directoryInformation = new DirectoryInfo("Input");
+          DirectoryInfo directoryInformation = new DirectoryInfo(folderName);
         if (!directoryInformation.Exists)
             directoryInformation.Create();
 
         string saveingDirectory =  $"{directoryInformation.FullName}\\{fileName}";
         
-        //check file name
+        //checks file name
         Debug.Log(saveingDirectory);
         int index = 0;
         if (File.Exists(saveingDirectory + $".{ format}"))

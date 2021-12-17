@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(ObjectSpawningHandler))]
 public class ObjectSwapButton : MonoBehaviour
 {
     [SerializeField]
@@ -11,7 +10,7 @@ public class ObjectSwapButton : MonoBehaviour
     ObjectSpawningHandler spawningHandler;
     private void Awake()
     {
-        spawningHandler = GetComponent<ObjectSpawningHandler>();
+        spawningHandler = FindObjectOfType<ObjectSpawningHandler>();
 
         previosButton.interactable = spawningHandler.MorePreviosObjects();
 

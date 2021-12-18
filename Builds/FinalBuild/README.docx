@@ -1,0 +1,5 @@
+Input and Output folder are in the folder with Build.
+
+Rotate Object by holding LMB and draging and mouse scroll to zoo in and out.
+
+Use Space Key to Load or Unload 3d Objects from Input Folder (only reads files with .obj format).

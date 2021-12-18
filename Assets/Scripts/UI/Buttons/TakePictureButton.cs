@@ -13,6 +13,6 @@ public class TakePictureButton : MonoBehaviour
     }
     public void TakePicture()
     {
-        photoHandler.Shot(Screen.width, Screen.height);
+        photoHandler.PictureOnNextFrame(Screen.width, Screen.height);
     }
 }

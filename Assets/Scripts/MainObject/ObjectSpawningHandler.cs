@@ -22,11 +22,11 @@ public class ObjectSpawningHandler : MonoBehaviour
     }
      void Awake()
     {
-        LoadingObjects();
-        if (allObjects.Count >= 0)
+        LoadObjects();
+        if (allObjects.Count > 0)
         {
-             GetLastVievObject();
-             ObjectShowing(mainObjectIndex, 0);
+            mainObjectIndex = 0;
+            ObjectShowing(mainObjectIndex, 0);
         }
         else
         {
@@ -43,10 +43,10 @@ public class ObjectSpawningHandler : MonoBehaviour
 
         allObjects.Clear();
     }
-    private void LoadingObjects()
+    private void LoadObjects()
     {
 
-        allObjects = global::LoadingObjects.UpdateObjests(allObjects);
+        allObjects = LoadingObjects.UpdateObjests(allObjects);
 
 
         foreach (GameObject gameObject in allObjects)
@@ -82,7 +82,6 @@ public class ObjectSpawningHandler : MonoBehaviour
     {
         ObjectHideing(mainObjectIndex,1);
         mainObjectIndex++;
-        PlayerPrefs.SetInt("mainObjectIndex",mainObjectIndex);
         ObjectShowing(mainObjectIndex,-1);
 
     }
@@ -90,7 +89,6 @@ public class ObjectSpawningHandler : MonoBehaviour
     {
         ObjectHideing(mainObjectIndex,-1);
         mainObjectIndex--;
-        PlayerPrefs.SetInt("mainObjectIndex", mainObjectIndex);
         ObjectShowing(mainObjectIndex,1);
     }
     void ObjectHideing(int objectIndex,int fadeDirection)
@@ -119,29 +117,6 @@ public class ObjectSpawningHandler : MonoBehaviour
             gameObject.SetActive(true);
             SetObjectAsMain(gameObject);
         });
-    }
-    void GetLastVievObject()
-    {
-        if (PlayerPrefs.HasKey("mainObjectIndex"))
-        {
-            if (PlayerPrefs.GetInt("mainObjectIndex") > allObjects.Count - 1)
-            {
-                //There is less 3d objects then last time using application
-                mainObjectIndex = allObjects.Count - 1;
-                PlayerPrefs.SetInt("mainObjectIndex",allObjects.Count - 1);
-            }
-            else
-            {
-                //Normal Set
-                mainObjectIndex = PlayerPrefs.GetInt("mainObjectIndex", 0);
-            }
-        }
-        else
-        {
-            //First Boot
-            mainObjectIndex = 0;
-            PlayerPrefs.SetInt("mainObjectIndex", 0);
-        }
     }
     void SetObjectAsMain(GameObject gameObject)
     {

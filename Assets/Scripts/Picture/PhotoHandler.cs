@@ -14,26 +14,25 @@ public class PhotoHandler : MonoBehaviour
     [SerializeField]
     string fileName = "Picture";
 
-    bool takeScreenShot;
-
+    bool takePicture;
     Camera pictureCamera;
     void Awake()
     {
-        pictureCamera = Camera.main;
+        pictureCamera = GetComponent<Camera>();
     }
 
-    public void Shot(int width, int height)
+    public void PictureOnNextFrame(int width, int height)
     {
         resolutionWidth = width;
         resolutionHeight = height;
 
-        takeScreenShot = true;
+        takePicture = true;
     }
     private void OnPostRender()
     {
-        if(takeScreenShot == true)
+        if(takePicture == true)
         {
-            takeScreenShot = false;
+            takePicture = false;
             TakePicture(resolutionWidth, resolutionHeight);
         }
     }
@@ -72,12 +71,11 @@ public class PhotoHandler : MonoBehaviour
     {
         //Checks Folder
 
-          DirectoryInfo directoryInformation = new DirectoryInfo(FindObjectOfType<ActiveFolders>().folderOutputName);
+          DirectoryInfo directoryInformation = new DirectoryInfo("Output");
         if (!directoryInformation.Exists)
             directoryInformation.Create();
 
         string saveingDirectory =  $"{directoryInformation.FullName}\\{fileName}";
-        
         //Checks file name
         int index = 0;
         if (File.Exists(saveingDirectory + $".{ format}"))
